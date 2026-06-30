@@ -1,8 +1,9 @@
 #!/bin/env bash
+
 set -euo pipefail
 
 CONF="purrfect.conf"
-LOG="mydaemon"
+LOG="purrfect.log"
 
 log() { logger -t "$LOG" "$*"; }
 
@@ -38,7 +39,7 @@ delay_from_spec() {
 }
 
 main() {
-    log "Daemon started"
+    log "Purrfect started"
     while :; do
         load_conf
         for name in "${!CMDS[@]}"; do
