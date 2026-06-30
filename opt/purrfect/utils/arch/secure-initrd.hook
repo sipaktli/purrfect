@@ -1,0 +1,13 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = linux
+Target = linux-lts
+Target = linux-hardened
+Target = linux-zen
+
+[Action]
+Description = Change permissions of the generated initrd
+When = PostTransaction
+Exec = /usr/bin/bash -c 'chmod 600 /boot/initramfs-*.img'
