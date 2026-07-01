@@ -1,14 +1,19 @@
 #!/bin/env bash
 
+# sane fails on
 set -euo pipefail
 
+# config file
 CONF="purrfect.conf"
-LOG="purrfect.log"
 
+# logging
+LOG="purrfect.log"
 log() { logger -t "$LOG" "$*"; }
 
+# hash maps
 declare -A CMDS TIMES NEXT
 
+# importing values from config
 load_conf() {
     CMDS=() TIMES=()
     while IFS='=' read -r key val; do
@@ -56,5 +61,3 @@ main() {
         sleep 60
     done
 }
-
-main
